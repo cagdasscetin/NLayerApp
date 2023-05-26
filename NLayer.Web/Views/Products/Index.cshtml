@@ -4,6 +4,10 @@
 }
 @model List<ProductWithCategoryDto>
 
+
+<body>
+    <a class="btn btn-success" asp-controller="Products" asp-action="Save">Add</a>
+</body>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -13,6 +17,7 @@
             <td>Stock</td>
             <td>Category</td>
             <td>CreatedDate</td>
+            <td>Actions</td>
         </tr>
     </thead>
 
@@ -26,6 +31,10 @@
                 <td>@item.Stock</td>
                 <td>@item.Category.Name</td>
                 <td>@item.CreatedDate</td>
+                <td>
+                    <a class="btn btn-warning" asp-controller="Products" asp-action="Update" asp-route-id="@item.Id">Update</a>
+                    <a class="btn btn-danger" asp-controller="Products" asp-action="Remove" asp-route-id="@item.Id">Delete</a>
+                </td>
             </tr>
         }
     </tbody>
